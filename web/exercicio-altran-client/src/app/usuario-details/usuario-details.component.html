@@ -1,0 +1,16 @@
+<h2>Usuario Details</h2> 
+
+<hr/>
+<div *ngIf="usuario">
+  <div>
+    <label><b>Nome: </b></label> {{usuario.nome}}
+  </div>
+  <div>
+    <label><b>Email: </b></label> {{usuario.email}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Usuario List</button> &nbsp;&nbsp;
+<button (click)="update(usuario.id)" class="btn btn-primary">Update Usuario</button><br>

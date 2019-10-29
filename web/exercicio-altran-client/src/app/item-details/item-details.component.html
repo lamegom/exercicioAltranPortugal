@@ -1,0 +1,16 @@
+<h2>Item Details</h2> 
+
+<hr/>
+<div *ngIf="item">
+  <div>
+    <label><b>Nome: </b></label> {{item.nome}}
+  </div>
+  <div>
+    <label><b>Valor: </b></label> {{item.valor}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Item List</button> &nbsp;&nbsp;
+<button (click)="update(item.id)" class="btn btn-primary">Update Item</button><br>
