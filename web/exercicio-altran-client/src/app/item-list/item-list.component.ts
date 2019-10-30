@@ -37,4 +37,8 @@ export class ItemListComponent implements OnInit {
   itemDetails(id: string){
     this.router.navigate(['details', JSON.stringify(id)]);
   }
+
+  buyNow(id: string){
+    this.router.navigate(['carrinho', JSON.stringify(id)]);
+  }
 }

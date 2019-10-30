@@ -1,17 +1,20 @@
 package com.exercicio.altra.carrinhodecompras.domain;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
-public class Usuario {
+public class Pedido {
     @Id
     private ObjectId _id;
-    private String nome;
-    private String email;
 
+    private Usuario usuario;
+
+    private List<ItemCompra> items;
 
     public ObjectId getId() {
         return _id;
@@ -21,25 +24,23 @@ public class Usuario {
         this._id = id;
     }
 
-	public String getNome() {
-		return nome;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public String getEmail() {
-		return email;
+	public List<ItemCompra> getItems() {
+		return items;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setItems(List<ItemCompra> items) {
+		this.items = items;
 	}
 
-
-
-
+    
 
 
 }

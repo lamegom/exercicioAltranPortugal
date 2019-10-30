@@ -37,4 +37,8 @@ export class UsuarioListComponent implements OnInit {
   usuarioDetails(id: string){
     this.router.navigate(['detailsUsuario', JSON.stringify(id)]);
   }
+
+  carrinho(id: string){
+    this.router.navigate(['pedidos', JSON.stringify(id)]);
+  }
 }

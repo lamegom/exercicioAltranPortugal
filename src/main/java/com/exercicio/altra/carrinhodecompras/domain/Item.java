@@ -1,10 +1,10 @@
 package com.exercicio.altra.carrinhodecompras.domain;
 
+import java.math.BigDecimal;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.math.BigDecimal;
 
 
 @Document
@@ -37,6 +37,7 @@ public class Item {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+
 
 
 

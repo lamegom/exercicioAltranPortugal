@@ -12,6 +12,9 @@ import { CreateUsuarioComponent } from './create-usuario/create-usuario.componen
 import { UsuarioDetailsComponent } from './usuario-details/usuario-details.component';
 import { UsuarioListComponent } from './usuario-list/usuario-list.component';
 import { UpdateUsuarioComponent } from './update-usuario/update-usuario.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { CarrinhoUsuarioComponent } from './carrinho-usuario/carrinho-usuario.component';
+import { CarrinhoListComponent } from './carrinho-list/carrinho-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,10 @@ import { UpdateUsuarioComponent } from './update-usuario/update-usuario.componen
     CreateUsuarioComponent,
     UsuarioDetailsComponent,
     UsuarioListComponent,
-    UpdateUsuarioComponent
+    UpdateUsuarioComponent,
+    CarrinhoComponent,
+    CarrinhoUsuarioComponent,
+    CarrinhoListComponent
   ],
   imports: [
     BrowserModule,
