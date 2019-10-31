@@ -18,3 +18,5 @@ ng serve
 cd exercicioAltranPortugal
 
 mvn spring-boot:run
+
+abrir o endereço no navegador http://localhost:4200
