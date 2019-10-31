@@ -17,5 +17,7 @@ import com.exercicio.altra.carrinhodecompras.domain.Usuario;
 
 	    void delete(String id);
 
+		int getByName(String nome);
+
 
 	}

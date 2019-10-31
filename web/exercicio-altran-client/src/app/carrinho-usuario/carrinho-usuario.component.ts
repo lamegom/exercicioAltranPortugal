@@ -43,7 +43,7 @@ fechar(id: string) {
         let itemCarrinho = JSON.parse(cart[i]);
         itemsCarrinho.push({
           item: itemCarrinho.item,
-          quantity: itemCarrinho.quantity
+          quantidade: itemCarrinho.quantidade
         });
       }
 
@@ -58,6 +58,8 @@ fechar(id: string) {
 
        this.pedidoService.createPedido(pedido).subscribe(ped => {
          console.log('persited: ', ped);
+
+         localStorage.removeItem('cart');
  
          this.router.navigate(['pedidos', JSON.stringify(id)]);
      }, error => console.log(error))

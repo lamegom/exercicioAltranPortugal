@@ -1,11 +1,14 @@
 <div class="panel panel-primary">
         <div class="panel-heading">
-          <h2>Carrinho de Compras</h2>
+          <h2>Lista de Pedidos</h2>
         </div><div class="pb-5">
-        <div class="container" *ngFor="let pedido of pedidos">
-          <div class="row">
+        <div class="container">
+          <div class="row" *ngFor="let pedido of pedidos">
+
             <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
-    
+            <div class="panel-heading">
+                    <h5>Pedido no. {{pedido.id.counter}} - {{pedido.id.date}} - {{pedido.usuario.nome}}</h5>
+                  </div>
               <!-- Shopping cart table -->
               <div class="table-responsive">
                 <table class="table">
@@ -23,9 +26,6 @@
                           <th scope="col" class="border-0 bg-light">
                                 <div class="py-2 text-uppercase">Sub-total</div>
                               </th>
-                      <th scope="col" class="border-0 bg-light">
-                        <div class="py-2 text-uppercase">Acao</div>
-                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -38,39 +38,35 @@
                         </div>
                       </th>
                       <td class="border-0 align-middle"><strong>{{itemCarrinho.item.valor}}</strong></td>
-                      <td class="align-middle"><strong>{{itemCarrinho.quantity}}</strong></td>
-                      <td class="align-middle"><strong>{{itemCarrinho.item.valor * itemCarrinho.quantity}}</strong></td>
-                      <td class="border-0 align-middle">
-                            <button (click)="remove(itemCarrinho.item.id)" class="btn btn-info" style="margin-left: 10px">Excluir</button>
-                         </td>
+                      <td class="align-middle"><strong>{{itemCarrinho.quantidade}}</strong></td>
+                      <td class="align-middle"><strong>{{itemCarrinho.item.valor * itemCarrinho.quantidade}}</strong></td>
                     </tr>
                     
                   </tbody>
                 </table>
               </div>
               <!-- End -->
+              <div class="row bg-white rounded shadow-sm">
+                    <div class="col-lg-8">
+                      <div class="p-4">
+        
+                        <ul class="list-unstyled mb-4">
+                           <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                            <h5 class="font-weight-bold">${{pedido.total}}</h5>
+                          </li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
             </div>
+            <hr/>
           </div>
     
-          <div class="row py-5 p-4 bg-white rounded shadow-sm">
-            <div class="col-lg-8">
-              <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
-              <div class="p-4">
-                <p class="font-italic mb-4">Frete grátis e livre de impostos.</p>
-                <ul class="list-unstyled mb-4">
-                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${{total}}</strong></li>
-                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Frete</strong><strong>$0.00</strong></li>
-                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Impostos</strong><strong>$0.00</strong></li>
-                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                    <h5 class="font-weight-bold">${{total}}</h5>
-                  </li>
-                </ul><a  [routerLink]="" (click)="fecharPedido()" class="btn btn-dark rounded-pill py-2 btn-block">Fechar Pedido</a>
-              </div>
-            </div>
-          </div>
+          
     
+
         </div>
-        </div>
+        
     </div>
     
     

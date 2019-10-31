@@ -12,6 +12,7 @@ export class CreateItemComponent implements OnInit {
 
   item: Item = new Item();
   submitted = false;
+  message = '';
 
   constructor(private itemService: ItemService,
     private router: Router) { }
@@ -32,6 +33,14 @@ export class CreateItemComponent implements OnInit {
   }
 
   onSubmit() {
+    this.message = '';
+    if(parseFloat(this.item.valor) <= 0){
+      this.submitted = false;
+      this.message = 'Valor de ve ser maior que 0!';
+     return;
+      return;
+    }
+
     this.submitted = true;
     this.save();    
   }

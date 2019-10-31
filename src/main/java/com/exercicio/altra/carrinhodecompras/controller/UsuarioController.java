@@ -40,6 +40,13 @@ public class UsuarioController {
         return ResponseEntity.ok().body(usuario);
     }
     
+    @GetMapping("/usuarios/nome/{nome}")
+    public ResponseEntity<Integer> getusuarioByNome(@PathVariable(value = "nome") String nome)
+        throws ResourceNotFoundException {
+    	int result = usuarioservice.getByName(nome);
+        return ResponseEntity.ok().body(result);
+    }
+    
     @PostMapping("/usuarios")
     public Usuario createEmployee(@Valid @RequestBody Usuario usuario) {
         return usuarioservice.saveOrUpdate(usuario);

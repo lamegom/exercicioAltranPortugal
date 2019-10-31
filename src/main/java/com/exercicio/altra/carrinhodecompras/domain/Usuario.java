@@ -3,11 +3,13 @@ package com.exercicio.altra.carrinhodecompras.domain;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 
 @Document
 public class Usuario {
     @Id
+    @Field("id")
     private ObjectId _id;
     private String nome;
     private String email;

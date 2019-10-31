@@ -64,5 +64,10 @@ import com.exercicio.altra.carrinhodecompras.services.UsuarioService;
 	    	usuarioRepository.deleteById(dbId);
 	    }
 
+	    @Override
+	    public int getByName(String nome) {
+	    	
+	    	return usuarioRepository.findByNome(nome).size();
+	    }
 	   
 	}

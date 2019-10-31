@@ -15,6 +15,10 @@ export class UsuarioService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  getUsuarioByNome(nome: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/nome/${nome}`);
+  }
+
   createUsuario(usuario: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, usuario);
   }

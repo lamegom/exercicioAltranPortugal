@@ -24,9 +24,38 @@ export class CarrinhoListComponent implements OnInit {
 
     this.pedidoService.getPedidos(id)
       .subscribe(data => {
-        console.log(data)
-        this.pedidos = data;
+        var pedidos = data;
+
+        for (var j = 0; j < pedidos.length; j++) {
+          let pedido = pedidos[j];
+          pedido.total = 0;
+          for (var i = 0; i < pedido.items.length; i++) {
+            let itemCarrinho = pedido.items[i];
+            pedido.total += itemCarrinho.item.valor * itemCarrinho.quantidade;
+          }
+
+          
+        }
+
+
+
+
+        this.pedidos = pedidos.sort(this.compareByAmount);
       }, error => console.log(error));
+  }
+
+  compareByAmount(a : any, b : any) : any {
+     
+    const amountA = a.total;
+    const amountB = b.total;
+  
+    let comparison = 0;
+    if (amountA > amountB) {
+      comparison = 1;
+    } else if (amountA < amountB) {
+      comparison = -1;
+    }
+    return comparison;
   }
 
 }

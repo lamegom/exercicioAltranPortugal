@@ -5,6 +5,7 @@ package com.exercicio.altra.carrinhodecompras.services.impl;
 	import java.util.ArrayList;
 import java.util.List;
 
+import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,8 @@ import com.exercicio.altra.carrinhodecompras.services.PedidoService;
 	        Usuario usuario = usuarioRepository.findById(dbId).orElse(null);
 	        
 	        List<Pedido> pedidos = new ArrayList<>();
-	        pedidoRepository.findAll().forEach(pedidos::add);
+	        pedidoRepository.findByUsuario(usuario).forEach(pedidos::add);
+
 	        
 	        return pedidos;
 	    }

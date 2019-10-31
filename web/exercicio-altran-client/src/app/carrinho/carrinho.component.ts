@@ -30,7 +30,7 @@ export class CarrinhoComponent implements OnInit {
             
             itemCarrinho= {
               item: data,
-              quantity: 1
+              quantidade: 1
             };
 
             if (localStorage.getItem('cart') == null) {
@@ -53,7 +53,7 @@ export class CarrinhoComponent implements OnInit {
                 localStorage.setItem('cart', JSON.stringify(cart));
               } else {
                 let itemCarrinho: ItemCarrinho = JSON.parse(cart[index]);
-                itemCarrinho.quantity += 1;
+                itemCarrinho.quantidade += 1;
                 cart[index] = JSON.stringify(itemCarrinho);
                 localStorage.setItem("cart", JSON.stringify(cart));
               }
@@ -82,12 +82,47 @@ export class CarrinhoComponent implements OnInit {
         let itemCarrinho = JSON.parse(cart[i]);
         this.itemsCarrinho.push({
           item: itemCarrinho.item,
-          quantity: itemCarrinho.quantity
+          quantidade: itemCarrinho.quantidade
         });
-        this.total += itemCarrinho.item.valor * itemCarrinho.quantity;
+        this.total += itemCarrinho.item.valor * itemCarrinho.quantidade;
       }
+
+      this.itemsCarrinho .sort(this.compareByName);
+      this.itemsCarrinho .sort(this.compareByAmount);
+
       console.log('this.itemsCarrinho ', this.itemsCarrinho )
     }
+
+    compareByName(a : any, b : any) : any {
+     
+      const nameA = a.nome.toUpperCase();
+      const nomeB = b.nome.toUpperCase();
+    
+      let comparison = 0;
+      if (nameA > nomeB) {
+        comparison = 1;
+      } else if (nameA < nomeB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+    
+
+    compareByAmount(a : any, b : any) : any {
+     
+      const amountA = a.valor.toUpperCase();
+      const amountB = b.valor.toUpperCase();
+    
+      let comparison = 0;
+      if (amountA > amountB) {
+        comparison = 1;
+      } else if (amountA < amountB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+    
+    
   
     remove(id: string): void {
       let cart: any = JSON.parse(localStorage.getItem('cart'));
